@@ -11,7 +11,8 @@
         "build": "npm run build:mac && npm run build:win && npm run build:linux",
         "build:mac": "electron-builder --mac --x64 --arm64",
         "build:win": "electron-builder --win --x64 --ia32",
-        "build:linux": "electron-builder --linux --x64 --arm64 --armv7l",
+        "build:linux": "electron-builder --linux --x64",
+        "deploy": "rsync ./dist/ deck@steamdeck.rpt.int.yasichs.com:/home/deck/Downloads/ytc",
         "buildRetinaDMGBackground": "tiffutil -cathidpicheck background.png background@2x.png -out background.tiff"
     },
     "dependencies": {
@@ -36,7 +37,7 @@
         "productName": "YouTube TV",
         "appId": "com.youtube.tv",
         "asar": true,
-        "directories": { "output": "../YTV_Builds" },
+        "directories": { "output": "./dist" },
         "mac": {
             "category": "public.app-category.entertainment",
             "target": "dmg",
@@ -56,11 +57,6 @@
                 }
             ],
             "background": "build/background.tiff"
-        },
-        "linux": {
-            "target": [ "deb", "rpm" ],
-            "icon": "build/icon.icns",
-            "packageCategory": "Video"
         },
         "win": {
             "target": "NSIS",

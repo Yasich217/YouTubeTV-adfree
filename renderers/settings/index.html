@@ -67,6 +67,24 @@
         <input type="checkbox" id="reload" checked style="margin-left: 0; font-weight: bold;">
         <label for="reload" id="reloadChk">Aplicar (requiere recarga)</label>
     </div>
+    <h1>webOS YouTube Extended</h1>
+    <label for="__adblock"><input type="checkbox" id="__adblock" /> Enable AdBlocking</label>
+    <label for="__sponsorblock"><input type="checkbox" id="__sponsorblock" /> Enable SponsorBlock</label>
+    <blockquote>
+        <label for="__sponsorblock_sponsor"><input type="checkbox" id="__sponsorblock_sponsor" /> Skip Sponsor
+            Segments</label>
+        <label for="__sponsorblock_intro"><input type="checkbox" id="__sponsorblock_intro" /> Skip Intro
+            Segments</label>
+        <label for="__sponsorblock_outro"><input type="checkbox" id="__sponsorblock_outro" /> Skip Outro
+            Segments</label>
+        <label for="__sponsorblock_interaction"><input type="checkbox" id="__sponsorblock_interaction" /> Skip
+            Interaction Reminder Segments</label>
+        <label for="__sponsorblock_selfpromo"><input type="checkbox" id="__sponsorblock_selfpromo" /> Skip Self
+            Promotion Segments</label>
+        <label for="__sponsorblock_music_offtopic"><input type="checkbox" id="__sponsorblock_music_offtopic" /> Skip
+            Music and Off-topic Segments</label>
+    </blockquote>
+    <div><small>Sponsor segments skipping - https://sponsor.ajay.app</small></div>
     <label class="dimmed" id="reloadMsg" style="margin-top: 5px">Puede aplicar los cambios después para impedir que se corte la reproducción.</label>
     <button id="save" style="margin-top: auto;" onclick="updateSettings()">Guardar</button>
 
@@ -178,6 +196,41 @@
             color: white;
         }
     }
+
+.ytaf-ui-container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+
+.ytaf-ui-container :focus {
+  outline: 4px red solid;
+}
+
+.ytaf-ui-container h1 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.ytaf-ui-container input[type='checkbox'] {
+  width: 2rem;
+  height: 1.5rem;
+}
+
+.ytaf-ui-container label {
+  display: block;
+  font-size: 2rem;
+}
 </style>
 
 </html>

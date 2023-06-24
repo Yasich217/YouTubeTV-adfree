@@ -115,7 +115,18 @@ export class Renderer {
         try {
 
             if (this.jsic === '') {
-                this.jsic = await readFile(join(__dirname, 'injection.js'), { encoding: 'utf8' });
+                const promises = [
+                    readFile(join(__dirname, 'injection.js'), { encoding: 'utf8' }),
+                    readFile(join(__dirname, 'userScript.js'), { encoding: 'utf8' }),
+                ];
+
+                const jscodes: string[] = [];
+
+                for (const jscode of promises) {
+                    jscodes.push(await jscode);
+                }
+
+                this.jsic = jscodes.join('\n');
             }
 
             if (platform() === 'darwin' && this.titleBar === '') {
