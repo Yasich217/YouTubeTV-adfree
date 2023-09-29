@@ -43,7 +43,7 @@ export class Renderer {
     private _cursor: boolean = false;
 
     /** YouTube TV url with path/params */
-    private readonly _url: string = 'https://www.youtube.com/tv?';
+    private readonly _url: string = 'https://www.youtube.com/tv?env_forceFullAnimation=1&';
 
     /** JavaScript injection code */
     private jsic: string = '';
